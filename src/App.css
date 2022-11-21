@@ -1,38 +1,473 @@
-.App {
-  text-align: center;
+@import url("https://fonts.cdnfonts.com/css/gilroy-bold");
+
+/* font-family: 'Gilroy-Bold', sans-serif;
+font-family: 'Gilroy-Heavy', sans-serif;
+font-family: 'Gilroy-Light', sans-serif;
+font-family: 'Gilroy-Medium', sans-serif;
+font-family: 'Gilroy-Regular', sans-serif; */
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	font-family: "Gilroy-Regular", sans-serif;
+	box-sizing: border-box;
+}
+body {
+	background: #e1e3e9;
+	padding: 1.5rem;
+}
+#root {
+	max-width: 800px;
+	margin: auto;
+}
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 0.8rem;
+}
+.navbar a {
+	text-decoration: none;
+	color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logoContainer {
+	display: flex;
+	flex-flow: column;
+	width: 60px;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+.logoTxt {
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.profileImgContainer {
+	width: 2rem;
+	height: 2rem;
+	border: 1px solid #293b75;
+	border-radius: 100%;
+	overflow: hidden;
+}
+.loginPage {
+	width: 100%;
+	background: #e1e3e9;
+	display: flex;
+	justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.loginFormContainer {
+	width: 100%;
+	/* height: 80vh; */
+	padding: 16px;
+	background: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0px 0px 10px #d4ddf2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
 }
 
-.App-link {
-  color: #61dafb;
+.pageHeading {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 39px;
+	text-align: center;
+	color: #111228;
+	margin: 24px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loginForm {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+}
+
+.loginFormLabels {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+}
+.loginFormInputs {
+	/* width: 80vw; */
+	padding: 12px 16px;
+	margin: 8px 0 16px 0;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid #d4ddf2;
+	border-radius: 8px;
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.loginBtn {
+	padding: 10px;
+	margin-bottom: 16;
+	background: #00b700;
+	border-radius: 10px;
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	color: #ffffff;
+}
+
+.pageTitle {
+	margin-bottom: 8px;
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+	color: #293b75;
+}
+
+.projectTabs {
+	width: 100%;
+	/* height: 40px; */
+	margin: 16px 0;
+	background: #111228;
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.tabBtns {
+	flex: 1;
+	padding: 0.2rem 0.6rem;
+	margin: 0.4rem;
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	color: #00b700;
+	border: none;
+	background: none;
+}
+
+.tabBtnActive {
+	background: #00b700;
+	border-radius: 16px;
+	color: white;
+}
+
+.projectCard {
+	width: 100%;
+	padding: 16px;
+	margin: 8px 0;
+	background: #ffffff;
+	box-shadow: 0px 0px 10px #d4ddf2;
+	border-radius: 8px;
+
+	display: flex;
+	flex-direction: row;
+	/* align-items: center; */
+	justify-content: space-between;
+}
+.proIndex {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	/* identical to box height */
+
+	color: #111228;
+}
+
+.proCardDetails,
+.proCardDetails > span {
+	width: 80%;
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	/* identical to box height */
+
+	color: #111228;
+}
+
+.proCardDetails > span {
+	color: #00b700;
+}
+.projectDetailsBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader-container {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+
+.spinner {
+	width: 64px;
+	height: 64px;
+	border: 8px solid;
+	border-color: #00b700 transparent #00b700 transparent;
+	border-radius: 50%;
+	animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.projectHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	background: #ffffff;
+	box-shadow: 0px 0px 8px #d4ddf2;
+	border-radius: 8px;
+	padding: 0.3rem;
+}
+
+.backBtn a {
+	display: flex;
+}
+.projectHeader > div,
+.projectHeader > div > span {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	color: #111228;
+}
+.projectHeader > div > span {
+	color: #00b700;
+}
+
+.detailsTitle {
+	text-align: center;
+	text-decoration-line: underline;
+	text-underline-offset: 4px;
+	text-decoration-thickness: 1.2px;
+	margin: 1rem 0;
+}
+
+.projectDetailsForm {
+}
+
+.projectProgressBar {
+	/* accent-color: #00b700; */
+	background: #ffffff;
+	border-radius: 6px;
+	height: 8px;
+	position: relative;
+	margin: 1.5rem 0;
+}
+
+.projectProgressBar::after {
+	position: absolute;
+	content: "";
+	background: #00b700;
+	width: 30%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border-radius: 6px;
+}
+
+.projectDetailsForm label {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: -0.3px;
+	color: #111228;
+}
+.projectDetailsForm span {
+	height: 0.5rem;
+	width: 0.5rem;
+	color: #00b700;
+	vertical-align: sub;
+}
+/* document.getElementById("fu").style.background = "linear-gradient(to left,white 50%,red 50%)"; */
+
+select:required:invalid {
+	color: gray;
+}
+option[value=""][disabled] {
+	display: none;
+}
+option {
+	color: #111228;
+}
+
+.projectDetailsForm input,
+.projectDetailsForm select {
+	background: #ffffff;
+	border: 1px solid rgba(17, 18, 40, 0.16);
+	border-radius: 8px;
+	padding: 0.6rem 1rem;
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16px;
+
+	color: #cacaca;
+}
+
+.fieldContainer {
+	margin: 0.6rem 0;
+}
+
+.proEnvContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row;
+	width: 100%;
+	gap: 1rem;
+}
+
+.proEnvContainer > div {
+	flex: 1;
+}
+
+.proEnvContainer input {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row;
+	width: 100%;
+}
+
+.envType {
+	text-align: center;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.mileStones {
+	display: flex;
+	align-items: center;
+	justify-content: stretch;
+	white-space: nowrap;
+	margin: 4px 0;
+	gap: 0.5rem;
+}
+
+.mileStones input {
+	width: 100%;
+}
+.mileStones label {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: -0.3px;
+	color: #111228;
+}
+
+.proMaintenance {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 2rem;
+}
+
+.radioCont {
+	display: flex;
+	gap: 1rem;
+}
+
+.radioCont label {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: -0.3px;
+
+	color: #111228;
+}
+
+.radioCont input {
+	accent-color: #00b700;
+}
+
+.remark label {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: -0.3px;
+
+	color: #111228;
+}
+
+.formBtns {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	justify-content: space-evenly;
+	margin: 1rem 0;
+}
+
+.formBtns input {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	/* text-align: center; */
+	color: #00b700;
+	border: 1px solid #00b700;
+	border-radius: 10px;
+	width: 40%;
+}
+
+.submitBtn {
+	background: linear-gradient(
+		92.76deg,
+		#00b700 1.88%,
+		#00b700 97.88%
+	) !important;
+	color: #fff !important;
+}
+
+.errorMsg {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: -0.3px;
+	color: red;
 }
